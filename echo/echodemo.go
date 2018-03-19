@@ -1,9 +1,12 @@
 package main
 
-import {
-"github.com/labstack/echo"
-"github.com/labstack/echo/middleware"
-}
+import (
+	"net/http"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
+	"database/sql"
+)
+
 func main()  {
 	// Echo instance
 	e := echo.New()
@@ -17,7 +20,8 @@ func main()  {
 
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))
+
 }
 func hello(c echo.Context) error  {
-	return c.
+	return c.String(http.StatusOK, "Hello, World!")
 }
